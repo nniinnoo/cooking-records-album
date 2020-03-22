@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Text-->
+    <color name="colorTextWhite">#fff</color>
+    <color name="colorTextOrange">#FFAD59</color>
+    <color name="colorTextGray">#949183</color>
+
+    <!--Others-->
+    <color name="colorPrimary">#013473</color>
+    <color name="colorPrimaryLight">#f1e5bb</color>
+    <color name="colorPrimaryDark">#595757</color>
+    <color name="colorHeader">#f8f6ed</color>
+    <color name="colorContainerLight">#fff</color>
+    <color name="colorContainerRed">#e4331f</color>
+    <color name="colorExternalHeader">#bfc606</color>
+
+</resources>
