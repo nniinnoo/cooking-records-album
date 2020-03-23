@@ -11,6 +11,7 @@ import com.google.android.material.tabs.TabLayout
 import org.json.JSONObject
 import java.net.URL
 import com.example.funrecipes.APIConfig
+import kotlinx.android.synthetic.*
 
 enum class recipe_types(val kind: String) {
     SOUP("Soup"),
@@ -21,6 +22,8 @@ enum class recipe_types(val kind: String) {
 class MainActivity : AppCompatActivity() {
 
     var dataRecords = ArrayList<HashMap<String, String>>()
+
+    var recordsAmount = "5"
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +44,15 @@ class MainActivity : AppCompatActivity() {
 
             spinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    val test = parent?.getItemAtPosition(position).toString()
-                    Log.d("test spinner----", test)
+                    val newRecordsAmount = parent?.getItemAtPosition(position).toString()
+
+                    if (recordsAmount != newRecordsAmount) {
+                        recordsAmount = newRecordsAmount
+                        Log.d("data has changed", newRecordsAmount)
+                        dataRecords.clear()
+                        getCookingRecordsData().execute()
+                    }
+
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -73,15 +83,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun doInBackground(vararg params: String?): String {
-            return URL(APIConfig("5").URL_COOKING_RECORDS).readText(Charsets.UTF_8)
+            return URL(APIConfig(recordsAmount).URL_COOKING_RECORDS).readText(Charsets.UTF_8)
         }
 
         override fun onPostExecute(result: String?) {
             super.onPostExecute(result)
 
-            // Log.d("Test Fetched Data", result)
-
             findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
+
 
             val jsonObj = JSONObject(result)
             val dataRecordsArr = jsonObj.getJSONArray("cooking_records")
