@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
     var dataRecords = ArrayList<HashMap<String, String>>()
 
     var recordsAmount = "5"
+
+    var choosenRecipeType = "all"
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,6 +73,27 @@ class MainActivity : AppCompatActivity() {
         tabLayout.addTab(tabLayout.newTab().setText("Main Dish"))
         tabLayout.addTab(tabLayout.newTab().setText("Side Dish"))
 
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                when(tab.position) {
+                    0 -> choosenRecipeType = "all"
+                    1 -> choosenRecipeType = "soup"
+                    2 -> choosenRecipeType = "main_dish"
+                    3 -> choosenRecipeType = "side_dish"
+                }
+                dataRecords.clear()
+                getCookingRecordsData().execute()
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab) {
+
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab) {
+
+            }
+
+        })
 
         getCookingRecordsData().execute()
     }
@@ -101,11 +124,14 @@ class MainActivity : AppCompatActivity() {
 
                 val map = HashMap<String, String>()
 
-                map["recipe_type"] = item.getString("recipe_type").replace("_", " ").capitalize()
-                map["comment"] = item.getString("comment")
-                map["recorded_at"] = item.getString("recorded_at")
-                map["image_url"] = item.getString("image_url")
-                dataRecords.add(map)
+                if (item.getString("recipe_type") == choosenRecipeType
+                    || "all" == choosenRecipeType) {
+                    map["recipe_type"] = item.getString("recipe_type").replace("_", " ").capitalize()
+                    map["comment"] = item.getString("comment")
+                    map["recorded_at"] = item.getString("recorded_at")
+                    map["image_url"] = item.getString("image_url")
+                    dataRecords.add(map)
+                }
             }
 
             findViewById<ListView>(R.id.listview).adapter = CustomAdapter(this@MainActivity, dataRecords)
