@@ -2,7 +2,7 @@
 <resources>
     <!--Text-->
     <color name="colorTextWhite">#fff</color>
-    <color name="colorTextOrange">#FFAD59</color>
+    <color name="colorTextOrange">#FDAA55</color>
     <color name="colorTextGray">#949183</color>
 
     <!--Others-->
