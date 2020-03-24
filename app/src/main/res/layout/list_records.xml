@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/list_records"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:id="@+id/list_records"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -11,11 +11,10 @@
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="120dp"
-                  android:layout_weight="1"
                   android:orientation="horizontal"
                   android:paddingHorizontal="5dp"
                   android:background="@drawable/rounded_corner"
-    >
+                  tools:ignore="UselessParent">
         <TextView
                 android:id="@+id/record_no"
                 android:layout_width="wrap_content"
@@ -23,7 +22,7 @@
                 android:paddingHorizontal="3dp"
                 android:textStyle="bold"
                 android:textColor="@color/colorTextWhite"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 android:background="@color/colorTextGray"
         />
 
@@ -53,7 +52,7 @@
                     android:textColor="@color/colorTextWhite"
                     android:gravity="center"
                     android:textStyle="bold"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:background="@drawable/recipe_type_background"
                     android:layout_alignParentEnd="true" android:layout_alignParentRight="true"
                     android:layout_marginRight="1dp" android:layout_marginEnd="1dp"/>
@@ -66,7 +65,7 @@
                     android:textColor="@color/colorPrimary"
                     android:paddingTop="8dp"
                     android:paddingRight="18dp"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
             />
 
             <TextView
@@ -75,7 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorTextGray"
-                    android:textSize="14dp"/>
+                    android:textSize="14sp"/>
         </RelativeLayout>
 
     </LinearLayout>
