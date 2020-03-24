@@ -1,4 +1,4 @@
-package com.example.funrecipes
+package com.example.funrecipes.ui.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.funrecipes.R
 import com.squareup.picasso.Picasso
 
 

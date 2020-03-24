@@ -1,9 +1,10 @@
-package com.example.funrecipes
+package com.example.funrecipes.activity
 
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.funrecipes.R
 import com.squareup.picasso.Picasso
 
 
