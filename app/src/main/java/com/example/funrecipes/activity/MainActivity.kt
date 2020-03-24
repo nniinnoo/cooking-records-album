@@ -1,4 +1,4 @@
-package com.example.funrecipes
+package com.example.funrecipes.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,6 +7,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.funrecipes.R
+import com.example.funrecipes.api.APIConfig
+import com.example.funrecipes.ui.adapter.CustomAdapter
 import com.google.android.material.tabs.TabLayout
 import org.json.JSONException
 import org.json.JSONObject
@@ -27,7 +30,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /// SPINNER FEATURE
+        handleSpinner()
+
+        handleTabBar()
+
+        GetCookingRecordsData().execute()
+    }
+
+    /// SPINNER FEATURE
+    private fun handleSpinner() {
+
         val spinner: Spinner = findViewById(R.id.record_amount)
 
         // Create an arrayAdapter using the string array and a default spinner layout
@@ -62,9 +74,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
 
+    /// TAB FEATURE
+    private fun handleTabBar() {
 
-        /// TAB FEATURE
         val tabLayout: TabLayout = findViewById(R.id.tabLayout)
 
         tabLayout.addTab(tabLayout.newTab().setText("All"))
@@ -94,8 +108,6 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-
-        GetCookingRecordsData().execute()
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -117,6 +129,11 @@ class MainActivity : AppCompatActivity() {
 
             super.onPostExecute(result)
 
+            handleRetrieveData(result)
+        }
+
+        @SuppressLint("DefaultLocale")
+        private fun handleRetrieveData (result: String) {
             // To stop loading bar after finishing the background process (Set: VIEW.GONE)
             findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
 
@@ -144,11 +161,14 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
 
-                    //
                     val lv = findViewById<ListView>(R.id.listview)
 
-                    lv.adapter = CustomAdapter(this@MainActivity, dataRecords)
+                    lv.adapter = CustomAdapter(
+                        this@MainActivity,
+                        dataRecords
+                    )
 
+                    // to start new activity and passed the necessary data
                     lv.onItemClickListener =
                         AdapterView.OnItemClickListener { _: AdapterView<*>?, _: View?, position: Int, _: Long ->
 
