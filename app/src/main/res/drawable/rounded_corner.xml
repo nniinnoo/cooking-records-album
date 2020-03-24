@@ -1,5 +1,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- ListView background radius -->
     <corners android:radius="6dp" />
+
+    <!-- ListView background gradient -->
     <gradient
             android:type="radial"
             android:gradientRadius="8dp"

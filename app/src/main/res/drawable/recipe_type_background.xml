@@ -2,13 +2,13 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
        android:shape="rectangle">
 
-    <!-- radius should be half of the desired TabLayout height -->
+    <!-- Recipe type background radius -->
     <corners
             android:bottomLeftRadius="8dp"
             android:bottomRightRadius="8dp"
     />
 
-    <!-- TabLayout background color -->
+    <!-- Recipe type background text color -->
     <solid
             android:color="@color/colorTextOrange"/>
 
