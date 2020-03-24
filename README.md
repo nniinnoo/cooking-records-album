@@ -1,6 +1,8 @@
 # Cooking Records Album
 
 
+<img src="media/screenshot-2020-03-24_18.00.49.341.png" width="216" height="384" /> &nbsp;&nbsp;<img src="media/screenshot-2020-03-24_18.00.56.141.png" width="216" height="384" />
+
 Prerequisites
 --------------
 
