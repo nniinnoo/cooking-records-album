@@ -24,6 +24,6 @@ This cooking-records-album uses the Gradle build system.
 5. Open IntelliJ IDEA terminal command through \FunRecipes folder path and type: **gradlew init**\
    (make sure it's the correct folder which contains gradlew with dir (windows) or ls (mac)
 6. Open File > Invalidate Caches/Restart then select **Invalidate and Restart**
-7. Wait for a moment or Rebuild the project through: \
+7. Wait for an indexing moment or Rebuild the project through: \
    Build > Rebuild Project if the IDE don't directly sync the project
 8. Start your simulator and Run 'app'
