@@ -14,13 +14,16 @@ import com.squareup.picasso.Picasso
 class CustomAdapter(private val context: Context,
                     private val dataRecords: ArrayList<HashMap<String, String>>): BaseAdapter() {
 
+    // to create a new view/layout from the xml layout
     private val inflater: LayoutInflater =
         this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
+    // to get the size of data record
     override fun getCount(): Int {
         return dataRecords.size
     }
 
+    // to get the item position in array index
     override fun getItem(position: Int): Any {
         return position
     }
@@ -29,9 +32,10 @@ class CustomAdapter(private val context: Context,
         return position.toLong()
     }
 
+    // populate data accordingly
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
-        var dataItem = dataRecords[position]
+        val dataItem = dataRecords[position]
 
         val itemView = inflater.inflate(R.layout.list_records, parent, false)
         itemView.findViewById<TextView>(R.id.recipe_type).text = dataItem.get("recipe_type")
@@ -46,6 +50,7 @@ class CustomAdapter(private val context: Context,
             .into(itemView.findViewById<ImageView>(R.id.food_images))
 
         itemView.tag = position
+
         return itemView
     }
 }
