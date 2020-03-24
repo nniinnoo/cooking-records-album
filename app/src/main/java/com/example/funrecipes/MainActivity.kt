@@ -139,7 +139,7 @@ class MainActivity : AppCompatActivity() {
                             map["image_url"] = item.getString("image_url")
                             map["recipe_type"] = item.getString("recipe_type").replace("_", " ").capitalize()
                             map["comment"] = item.getString("comment")
-                            map["recorded_at"] = item.getString("recorded_at")
+                            map["recorded_at"] = "\u25CF " + item.getString("recorded_at")
                             dataRecords.add(map)
                         }
                     }

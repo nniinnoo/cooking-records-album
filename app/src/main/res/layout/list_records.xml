@@ -73,6 +73,9 @@
                     android:layout_below="@+id/comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="12dp"
+                    android:paddingTop="6dp"
                     android:textColor="@color/colorTextGray"
                     android:textSize="14sp"/>
         </RelativeLayout>
