@@ -13,28 +13,43 @@
             android:layout_height="?attr/actionBarSize"
             app:layout_collapseMode="pin"
     >
-        <LinearLayout
+        <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
         >
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+            >
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_launcher"
             />
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/cooking_record_album"
-                android:textSize="18dp"
-                android:paddingHorizontal="6dp"
-                android:textColor="@color/colorTextWhite"
-                android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cooking_record_album"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:paddingHorizontal="6dp"
+                    android:textColor="@color/colorTextWhite"
+                    android:id="@+id/toolbar_title"/>
+            </LinearLayout>
+            <Button
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/thumbnail_view"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginRight="12dp"
             />
-        </LinearLayout>
-    </androidx.appcompat.widget.Toolbar>
 
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
             android:id="@+id/option_bar"

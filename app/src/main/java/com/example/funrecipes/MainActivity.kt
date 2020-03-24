@@ -1,23 +1,21 @@
 package com.example.funrecipes
 
-import android.app.Activity
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayout
 import org.json.JSONObject
 import java.net.URL
-import com.example.funrecipes.APIConfig
-import kotlinx.android.synthetic.*
 
-enum class recipe_types(val kind: String) {
-    SOUP("Soup"),
-    MAIN_DISH("Main Dish"),
-    SIDE_DISH("Side Dish"),
-}
+//enum class recipe_types(val kind: String) {
+//    SOUP("Soup"),
+//    MAIN_DISH("Main Dish"),
+//    SIDE_DISH("Side Dish"),
+//}
 
 class MainActivity : AppCompatActivity() {
 
@@ -97,6 +95,11 @@ class MainActivity : AppCompatActivity() {
 
         getCookingRecordsData().execute()
     }
+
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.action_bar_menu, menu)
+//        return super.onCreateOptionsMenu(menu)
+//    }
 
     inner class getCookingRecordsData : AsyncTask<String, Void, String>() {
 
